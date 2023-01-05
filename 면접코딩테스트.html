@@ -7,37 +7,36 @@
     <title>코드미션</title>
 </head>
 <body>
-    <script>
-        const a = [-1000, 4, -3000, -9, 0, -10, 5, 6, -10000, -12345];
-        let minIdx;
+<script>
+  const a = [-1000, 1, -3000, -9, 0, -10, 2, 3, -10000, -12345];
+let minIdx;
 
-        const findIdx = () => {
-            const positiveA = a.filter(i=> i > 0);
-            const sortA =  positiveA.sort((a,b) => {
-                return a-b;
-            })
+const findIdx = () => {
+    const positiveA = a.filter(i=> i > 0);
+    const sortA =  positiveA.sort((a,b) => {
+        return a-b;
+    })
 
-            console.log(sortA);
-            // 배열이 없는 경우
-            if(!sortA.length){
-                minIdx = 1;
-            }else {
-                for(let i=1; i<=sortA.length; i++){
-                    if(!sortA.includes(i)){
-                        if(!minIdx){
-                            minIdx = i;
-                        }
-                    }
-                }
-                if(!minIdx) {
-                    minIdx = sortA.length + 1;
-                }
+    console.log(sortA);
+    // 배열이 없는 경우
+    if(!sortA.length){
+        minIdx = 1;
+    }else {
+        for(let i=1; i<=sortA.length; i++){
+            if(!sortA.includes(i)){
+                minIdx = i;
+                break;
             }
-            console.log(minIdx);    
         }
+        if(!minIdx) {
+            minIdx = sortA.length + 1;
+        }
+    }
+    console.log(minIdx);    
+}
 
-        findIdx();
+findIdx();
 
-    </script>
+</script>
 </body>
 </html>
